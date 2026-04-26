@@ -3,9 +3,9 @@ $results = @()
 $logFile = "onboarding.log"
 
 $ouMap = @{
-    "IT" = "OU=IT,DC=corp,DC=local"
-    "HR" = "OU=HR,DC=corp,DC=local"
-    "Finance" = "OU=Finance,DC=corp,DC=local"
+    "IT" = "OU=IT, OU=Users, OU= Corp, DC=corp, DC=local"
+    "HR" = "OU=HR, OU=Users, OU= Corp, DC=corp, DC=local"
+    "Finance" = "OU=Finance, OU=Users, OU= Corp, DC=corp, DC=local"
 }
 
 $groupMap = @{

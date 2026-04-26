@@ -1,0 +1,63 @@
+Active Directory JML Automation (Joiner–Mover–Leaver)
+Overview
+
+This project simulates a real-world Identity and Access Management (IAM) workflow in an Active Directory environment.
+
+The script automates the lifecycle of user accounts based on HR input data:
+
+Joiners → create and provision new users
+Movers → update department, OU, and group memberships
+Leavers → disable accounts
+
+It is designed to be idempotent, auditable, and safe to re-run, mirroring production automation practices.
+
+Key Features:
+-Automated user provisioning from CSV input
+-Organizational Unit (OU) placement based on department
+-Role-based group assignment and reconciliation
+-Account lifecycle management (create, update, disable)
+-Structured logging (text + JSON for audit/reporting)
+-Dry-run mode for safe testing
+-Error handling with clear operational feedback
+
+Project Structure
+├── Invoke-JML.ps1        # Main automation script
+├── users.csv             # Sample HR input file
+├── logs/                 # Execution logs + JSON reports
+├── docs/                 # Architecture and setup notes
+└── screenshots/          # ADUC, GPO, and environment visuals
+
+How It Works
+
+1. HR exports a CSV containing user lifecycle events
+2. Script processes each record based on Status:
+3. Joiner → creates user, assigns OU + groups
+4. Mover → updates OU and reconciles group membership
+5. Leaver → disables account
+
+All actions are logged for traceability
+
+Sample Input (users.csv)
+
+Dry Run (recommended first):
+.\Invoke-JML.ps1 -CsvPath .\users.csv -DryRun
+
+Execute Changes:
+.\Invoke-JML.ps1 -CsvPath .\users.csv
+
+Example Output:
+Text log: logs/jml-<timestamp>.log
+JSON report: logs/jml-<timestamp>.json
+
+These logs provide a full audit trail of:
+
+Actions taken
+Errors encountered
+Changes applied to each user
+Design Considerations
+Idempotency: Safe to re-run without duplicating users
+Separation of concerns: Config (OU/group mapping) separated from logic
+Auditability: Structured logs for review and compliance
+Scalability: Easily extended for additional departments or roles
+
+This project is a lab simulation and does not include production security hardening. It is intended to demonstrate automation patterns and Active Directory administration concepts.

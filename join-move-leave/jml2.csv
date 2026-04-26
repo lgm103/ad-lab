@@ -1,0 +1,5 @@
+FirstName,LastName,Department,Title,Manager,Status,EmployeeType
+John,Doe,IT,System Administrator,,Joiner,FullTime
+Jane,Smith,HR,HR Manager,,Joiner,FullTime
+Mike,Brown,Finance,Analyst,,Mover,FullTime
+Sara,Lee,IT,Support Tech,,Leaver,Contractor

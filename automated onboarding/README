@@ -1,0 +1,37 @@
+Active Directory User Onboarding Automation (PowerShell)
+
+Overview
+
+Manual user onboarding in Active Directory is time-consuming and prone to errors.
+This project automates the provisioning of users with consistent configuration, validation, and logging.
+
+Features:
+-Automated user creation in Active Directory
+-Role-based OU placement and group assignment
+-Username collision handling (e.g., jdoe → jdoe1)
+-Input validation for required fields and departments
+-Idempotent design (safe to re-run without duplicates)
+-Dry-run mode for testing without changes
+-Logging and CSV reporting for auditability
+
+How It Works:
+-Reads user data from CSV
+-Validates required fields and department mappings
+-Generates unique username
+-Creates user in appropriate OU
+-Assigns group membership based on department
+-Logs results and exports report
+
+Example Input:
+FirstName,LastName,Department
+John,Doe,IT
+John,Doe,IT
+Jane,,HR
+Bob,Smith,Finance
+
+Example Output:
+"Name","Username","Status","Message"
+"John Doe","jdoe","Created","Success"
+"John Doe","jdoe1","Failed","An attempt was made to add an object to the directory with a name that is already in use"
+"Jane ","N/A","Failed","Missing required fields"
+"Bob Smith","N/A","Failed","Invalid department"

@@ -1,0 +1,14 @@
+{
+  "Domain": "corp.local",
+  "OUMap": {
+    "IT": "OU=IT,DC=corp,DC=local",
+    "HR": "OU=HR,DC=corp,DC=local",
+    "FINANCE": "OU=Finance,DC=corp,DC=local"
+  },
+  "GroupMap": {
+    "IT": ["CN=IT,OU=IT,DC=corp,DC=local"],
+    "HR": ["CN=HR,OU=HR,DC=corp,DC=local"],
+    "FINANCE": ["CN=Finance,OU=Finance,DC=corp,DC=local"]
+  },
+  "DefaultPassword": "TempP@ss123!"
+}

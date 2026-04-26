@@ -1,0 +1,77 @@
+Active Directory Audit & Reporting
+Overview
+
+This module provides a PowerShell-based audit of an Active Directory environment, focusing on security posture, account hygiene, and operational visibility.
+
+It identifies common risks such as inactive accounts, excessive privileges, and misconfigured policies, and outputs structured reports for review.
+
+Key Features:
+-Detects inactive user accounts (based on last logon)
+-Identifies accounts with passwords set to never expire
+-Reports disabled user accounts
+-Enumerates privileged group membership
+-Finds stale computer accounts
+-Generates CSV reports + JSON summary
+
+.
+├── Invoke-ADAudit.ps1      # Main audit script
+├── reports/                # Generated audit outputs
+└── README.md               # This file
+
+How It Works:
+The script queries Active Directory and evaluates objects against common administrative and security checks:
+
+Check			| 	Description
+Inactive Users			Accounts with no logon activity beyond a defined threshold
+Password Never Expires		Accounts bypassing standard password policy
+Disabled Users			Accounts no longer in use but still present
+Privileged Users		Members of high-impact groups (e.g., Domain Admins)
+Stale Computers			Machines that have not authenticated recently
+
+
+Usage
+Run with default settings (30-day inactivity threshold)
+.\Invoke-ADAudit.ps1
+Customize inactivity threshold
+.\Invoke-ADAudit.ps1 -InactiveDays 60
+
+Reports are generated in the ./reports directory:
+
+inactive-users-<timestamp>.csv
+password-never-expires-<timestamp>.csv
+disabled-users-<timestamp>.csv
+privileged-users-<timestamp>.csv
+stale-computers-<timestamp>.csv
+summary-<timestamp>.json
+
+The summary file provides a quick overview of key metrics:
+
+Total users
+Number of inactive accounts
+Privileged users
+Other flagged conditions
+Example Use Case
+
+This script simulates a routine administrative audit to:
+
+Identify unnecessary access
+-Highlight policy violations
+-Support cleanup and remediation efforts
+-Design Considerations
+-Read-only operations (safe to run in any environment)
+-Modular checks (easy to extend with additional audits)
+-Structured outputs for reporting and analysis
+-Configurable thresholds for flexibility
+
+Key Learnings
+-Querying and filtering AD objects with PowerShell
+-Identifying common security risks in directory services
+-Producing structured, audit-friendly reports
+-Translating administrative tasks into automation
+
+Future Improvements
+-Integration with SIEM or logging systems
+
+Disclaimer
+
+This project is intended for lab and demonstration purposes. It does not represent a complete enterprise security audit solution.

@@ -1,0 +1,95 @@
+# GPO Baseline Deployment
+
+## Overview
+
+This module automates the creation and deployment of a baseline Group Policy Object (GPO) in an Active Directory environment.
+
+It demonstrates how administrative policies can be consistently applied across systems using PowerShell.
+
+---
+
+## Key Features
+
+* Creates or reuses a baseline GPO
+* Configures basic security-related settings
+* Applies account lockout thresholds
+* Demonstrates system hardening (e.g., USB storage control)
+* Links the GPO to a specified Organizational Unit (OU)
+
+---
+
+## Tech Stack
+
+* Windows Server (Active Directory Domain Services)
+* PowerShell
+* GroupPolicy module
+
+---
+
+## Project Structure
+
+```text
+.
+├── Invoke-GPOBaseline.ps1
+└── README.md
+```
+
+---
+
+## How It Works
+
+The script:
+
+1. Checks if the baseline GPO exists
+2. Creates it if not present
+3. Applies policy settings via registry configuration
+4. Links the GPO to a target OU
+
+---
+
+## Usage
+
+
+.\Invoke-GPOBaseline.ps1
+
+Optional:
+
+.\Invoke-GPOBaseline.ps1 -TargetOU "OU=IT,DC=corp,DC=local"
+
+
+---
+
+## Example Use Case
+
+Simulates deploying a standardized security baseline across systems in an enterprise environment.
+
+---
+
+## Design Considerations
+
+* Idempotent execution (safe to re-run)
+* Simple baseline for demonstration purposes
+* Extendable with additional policy settings
+
+---
+
+## Key Learnings
+
+* Automating Group Policy management
+* Linking policies to directory structure
+* Translating security requirements into enforceable configurations
+
+---
+
+## Future Improvements
+
+* Domain-level policy configuration (fine-grained password policies)
+* More comprehensive security baselines
+* Reporting on applied GPO settings
+* Integration with compliance frameworks
+
+---
+
+## Disclaimer
+
+This script is intended for lab and demonstration purposes and does not represent a complete enterprise security baseline.

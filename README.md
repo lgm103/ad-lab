@@ -20,7 +20,7 @@ Project Structure
 
 ├── jml-automation/        # Joiner-Mover-Leaver (user lifecycle automation)
 
-├── ad-audit/              # AD auditing and compliance reporting (planned)
+├── ad-audit/              # AD auditing and compliance reporting
 
 ├── gpo-deployment/        # Group Policy automation and baseline configuration (planned)
 

@@ -1,6 +1,0 @@
-"Name","Username","Status","Message"
-"John Doe","jdoe1","Failed","An attempt was made to add an object to the directory with a name that is already in use"
-"John Doe","jdoe1","Failed","An attempt was made to add an object to the directory with a name that is already in use"
-"Jane ","N/A","Failed","Missing required fields"
-"Bob Smith","bsmith","Created","Success"
-"Sara Lee","slee1","Failed","An attempt was made to add an object to the directory with a name that is already in use"
